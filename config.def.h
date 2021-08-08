@@ -9,13 +9,13 @@ static const unsigned int snap      = 32;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 
-static const char *fonts[]          = { "Hack:size=13:antialias=true:autohint=true", 
+static const char *fonts[]          = { "Hack:size=12:antialias=true:autohint=true", 
 										"monospace:size=12",
-										"Font Awesome 5 Free Solid:size=14:antialias=true:autohint=true",
-										"Font Awesome 5 Free Regular:size=14:antialias=true:autohint=true",
-										"Font Awesome 5 Brands:size=14:antialias=true:autohint=true" };
+										"Font Awesome 5 Free Solid:size=12:antialias=true:autohint=true",
+										"Font Awesome 5 Free Regular:size=12:antialias=true:autohint=true",
+										"Font Awesome 5 Brands:size=12:antialias=true:autohint=true" };
 
-static const char dmenufont[]       = "Hack:size=13:antialias=true:autohint=true";
+static const char dmenufont[]       = "Hack:size=12:antialias=true:autohint=true";
 static const char col_gray1[]       = "#222222";
 static const char col_gray2[]       = "#444444";
 static const char col_gray3[]       = "#bbbbbb";
@@ -39,6 +39,7 @@ static const Rule rules[] = {
 	/* class      instance    title       tags mask     isfloating   monitor */
 	{ "Gimp",     NULL,       NULL,       0,            1,           -1 },
 	{ "Firefox",  NULL,       NULL,       1 << 8,       0,           -1 },
+	{ "Spotify",  NULL,       NULL,       2,            True,        -1 },
 };
 
 /* layout(s) */
@@ -151,4 +152,3 @@ static Button buttons[] = {
 	{ ClkTagBar,            MODKEY,         Button1,        tag,            {0} },
 	{ ClkTagBar,            MODKEY,         Button3,        toggletag,      {0} },
 };
-
