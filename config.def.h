@@ -1,5 +1,7 @@
 /* See LICENSE file for copyright and license details. */
 
+#include <X11/XF86keysym.h>
+
 /* appearance */
 static const unsigned int borderpx  = 1;        /* border pixel of windows */
 static const unsigned int gappx     = 5;        /* gap pixel between windows */
@@ -7,13 +9,13 @@ static const unsigned int snap      = 32;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 
-static const char *fonts[]          = { "Hack:size=15:antialias=true:autohint=true", 
+static const char *fonts[]          = { "Hack:size=13:antialias=true:autohint=true", 
 										"monospace:size=12",
-										"Font Awesome 5 Free Solid:size=15:antialias=true:autohint=true",
-										"Font Awesome 5 Free Regular:size=15:antialias=true:autohint=true",
-										"Font Awesome 5 Brands:size=15:antialias=true:autohint=true" };
+										"Font Awesome 5 Free Solid:size=14:antialias=true:autohint=true",
+										"Font Awesome 5 Free Regular:size=14:antialias=true:autohint=true",
+										"Font Awesome 5 Brands:size=14:antialias=true:autohint=true" };
 
-static const char dmenufont[]       = "Hack:size=15:antialias=true:autohint=true";
+static const char dmenufont[]       = "Hack:size=13:antialias=true:autohint=true";
 static const char col_gray1[]       = "#222222";
 static const char col_gray2[]       = "#444444";
 static const char col_gray3[]       = "#bbbbbb";
@@ -62,6 +64,11 @@ static const Layout layouts[] = {
 /* helper for spawning shell commands in the pre dwm-5.0 fashion */
 #define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }
 
+/* Sound */ 
+static const char *upvol[]   = { "/usr/bin/pactl", "set-sink-volume", "0", "+5%",     NULL };
+static const char *downvol[] = { "/usr/bin/pactl", "set-sink-volume", "0", "-5%",     NULL };
+static const char *mutevol[] = { "/usr/bin/pactl", "set-sink-mute",   "0", "toggle",  NULL };
+
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
@@ -73,6 +80,7 @@ static const char *vbox[] = 	{ "virtualbox", NULL };
 static const char *filezilla[] = { "filezilla", NULL };
 static const char *spotify[] = { "spotify", NULL };
 static const char *discord[] = { "discord", NULL };
+static const char *wppplus[] = { "/opt/google/chrome/google-chrome --profile-directory=Default --app-id=hnpfjngllnobngcgfapefoaidbinmjnm", NULL };
 
 
 
@@ -119,6 +127,11 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_f, 	   spawn,          {.v = filezilla } },
 	{ MODKEY|ShiftMask,             XK_m, 	   spawn,          {.v = spotify } },
 	{ MODKEY|ShiftMask,             XK_d, 	   spawn,          {.v = discord } },
+	{ MODKEY|ShiftMask,             XK_1, 	   spawn,          {.v = wppplus } },
+	/* SOUND BINDS */
+	{ MODKEY,                       XK_F11, spawn, {.v = downvol } },
+	{ MODKEY,                       XK_F10,  spawn, {.v = mutevol } },
+	{ MODKEY,                       XK_F12, spawn, {.v = upvol   } },
 	
 };
 
