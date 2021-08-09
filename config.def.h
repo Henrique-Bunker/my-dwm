@@ -16,13 +16,13 @@ static const char *fonts[]          = { "Hack:size=12:antialias=true:autohint=tr
 										"Font Awesome 5 Brands:size=12:antialias=true:autohint=true" };
 
 /* Dracula theme colors */
-static const char norm_fg[] = "#bd93f9";
+static const char norm_fg[] = "#bfbfbf";
 static const char norm_bg[] = "#282a36";
-static const char norm_border[] = "#bd93f9";
+static const char norm_border[] = "#bfbfbf";
 
-static const char sel_fg[] = "#bfbfbf";
+static const char sel_fg[] = "#bd93f9";
 static const char sel_bg[] = "#282a36";
-static const char sel_border[] = "#bfbfbf";
+static const char sel_border[] = "#bd93f9";
 
 static const char urg_fg[] = "#f7f7fb";
 static const char urg_bg[] = "#5af78e";
