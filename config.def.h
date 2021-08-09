@@ -4,7 +4,7 @@
 
 /* appearance */
 static const unsigned int borderpx  = 1;        /* border pixel of windows */
-static const unsigned int gappx     = 5;        /* gap pixel between windows */
+static const unsigned int gappx     = 10;        /* gap pixel between windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
@@ -15,6 +15,24 @@ static const char *fonts[]          = { "Hack:size=12:antialias=true:autohint=tr
 										"Font Awesome 5 Free Regular:size=12:antialias=true:autohint=true",
 										"Font Awesome 5 Brands:size=12:antialias=true:autohint=true" };
 
+/* Dracula theme colors */
+static const char norm_fg[] = "#bd93f9";
+static const char norm_bg[] = "#282a36";
+static const char norm_border[] = "#bd93f9";
+
+static const char sel_fg[] = "#bfbfbf";
+static const char sel_bg[] = "#282a36";
+static const char sel_border[] = "#bfbfbf";
+
+static const char urg_fg[] = "#f7f7fb";
+static const char urg_bg[] = "#5af78e";
+static const char urg_border[] = "#5af78e";
+
+static const char title_fg[] = "#8AFF80";
+static const char title_bg[] = "#282a36";
+static const char col_borderbar[]   = "#bfbfbf";
+
+
 static const char dmenufont[]       = "Hack:size=12:antialias=true:autohint=true";
 static const char col_gray1[]       = "#222222";
 static const char col_gray2[]       = "#444444";
@@ -23,8 +41,12 @@ static const char col_gray4[]       = "#eeeeee";
 static const char col_cyan[]        = "#005577";
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
-	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
-	[SchemeSel]  = { col_gray4, col_cyan,  col_cyan  },
+	//[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
+	//[SchemeSel]  = { col_gray4, col_cyan,  col_cyan  },
+	[SchemeNorm] = { norm_fg,     norm_bg,   norm_border }, // unfocused wins
+    [SchemeSel]  = { sel_fg,      sel_bg,    sel_border },  // the focused win
+    //[SchemeUrg] =  { urg_fg,      urg_bg,    urg_border },
+    //[SchemeTitle] = { title_fg,   title_bg,  norm_border },
 };
 
 /* tagging */
